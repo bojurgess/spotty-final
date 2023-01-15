@@ -14,7 +14,7 @@
 {:else if $error}
 	<p>An error occured while loading the player.</p>
 {:else if $songData}
-  <main>
+  <main class="flex flex-col items-center max-w-fit rounded-2xl bg-gray-500 p-6">
     <SpotifyAlbumArt />
     <SpotifyTrackDetails />
   </main>
