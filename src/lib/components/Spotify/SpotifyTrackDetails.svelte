@@ -3,7 +3,7 @@
 	import SpotifyTrack from './SpotifyTrack.svelte';
 </script>
 
-<div>
+<div class="flex flex-col items-center my-8">
 	<SpotifyTrack />
 	<SpotifyArtistList />
 </div>

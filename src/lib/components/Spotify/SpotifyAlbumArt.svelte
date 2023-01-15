@@ -12,4 +12,4 @@
 	});
 </script>
 
-<img src={albumUrl} alt="Album Art" />
+<img class="rounded-2xl" src={albumUrl} alt="Album Art" />

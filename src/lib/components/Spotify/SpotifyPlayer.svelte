@@ -3,6 +3,7 @@
 	import fetchSpotifyData from '$lib/helpers/fetchSpotifyData';
 	import SpotifyTrackDetails from './SpotifyTrackDetails.svelte';
 	import SpotifyAlbumArt from './SpotifyAlbumArt.svelte';
+	import SpotifyTrackProgress from './SpotifyTrackProgress.svelte';
 
 	const { data: songData, error, isLoading } = fetchSpotifyData();
 
@@ -14,8 +15,9 @@
 {:else if $error}
 	<p>An error occured while loading the player.</p>
 {:else if $songData}
-	<main class="flex flex-col items-center max-w-fit rounded-2xl bg-gray-500 p-6 text-center">
+	<main class="text-black text-2xl flex flex-col items-center max-w-fit rounded-2xl bg-gray-500 p-6 text-center">
 		<SpotifyAlbumArt />
 		<SpotifyTrackDetails />
+    <SpotifyTrackProgress />
 	</main>
 {/if}

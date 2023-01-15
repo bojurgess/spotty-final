@@ -17,3 +17,9 @@
 <h2>
 	<Link text={name} {url} />
 </h2>
+
+<style>
+	h2 {
+		font-weight: bold;
+	}
+</style>
