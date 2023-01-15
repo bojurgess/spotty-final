@@ -12,10 +12,13 @@
 	});
 </script>
 
-{#each artists as artist}
-	{#if artists.indexOf(artist) !== artists.length - 1}
-		<SpotifyArtist name={artist.name} url={artist.external_urls.spotify} />{`, `}
+<span class="flex">
+	{#each artists as artist, i}
+			<SpotifyArtist name={artist.name} url={artist.external_urls.spotify} />
+			{#if i !== artists.length - 1}
+				<span class="mr-1">,</span>
+			{/if}
 	{:else}
-		<SpotifyArtist name={artist.name} url={artist.external_urls.spotify} />
-	{/if}
-{/each}
+		<p>No artists to show</p>
+	{/each}
+</span>
