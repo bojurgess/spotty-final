@@ -1,5 +1,5 @@
 <script>
-	import SpotifyPlayer from '$lib/components/Spotify/SpotifyPlayer.svelte';
+	import SpotifyPlayer from '$lib/components/Spotify/Player.svelte';
 </script>
 
 <SpotifyPlayer />
