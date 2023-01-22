@@ -54,7 +54,7 @@
 	{:else if compactDisplay === true && colors !== null}
 		<div
 			style="background-color: {selectedColor};"
-			class="max-w-fit p-4 bg-red-500 text-black rounded-2xl flex items-center"
+			class="min-w-fit p-4 bg-red-500 text-black rounded-2xl flex items-center"
 		>
 			<AlbumArt height="250px" />
 			<div class="p-8">
