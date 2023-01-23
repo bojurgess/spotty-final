@@ -33,6 +33,7 @@
 		fetchSpotifyData().then(() => {
 			if (colors !== null) {
 				currentColor.set(colors[1].hex)
+				selectedColor = colors[1].hex;
 			} else {
 				setTimeout(init, 1000 * 60)
 				currentColor.set('#000000');
@@ -51,7 +52,7 @@
 {#if dataLoaded === true}
 	{#if compactDisplay === false && colors !== null}
 		<div
-			style="background-color: {selectedColor};"
+			style="background-color: {$currentColor};"
 			class="min-w-fit p-4 bg-indigo-500 text-black flex flex-col items-center rounded-2xl"
 		>
 			<AlbumArt height="500px" />
@@ -63,7 +64,7 @@
 	{:else if compactDisplay === true && colors !== null}
 		<div
 			style="background-color: {selectedColor};"
-			class="min-w-fit p-4 bg-red-500 text-black rounded-2xl flex items-center"
+			class="min-w-fit p-4 text-black rounded-2xl flex items-center"
 		>
 			<AlbumArt height="250px" />
 			<div class="p-8">

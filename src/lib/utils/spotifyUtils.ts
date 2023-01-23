@@ -2,7 +2,9 @@ import { writable } from 'svelte/store';
 import { getColorPalette, colorPalette } from './colorUtils';
 
 export async function fetchData() {
-	const response = await fetch('https://getnowplaying.penguinoo.workers.dev/');
+	const response = await fetch('https://getnowplaying.penguinoo.workers.dev/' + new URLSearchParams({
+		market: 'US',
+	}));
 	if (response.status === 200 || response.status === 401) {
 		const data = await response.json();
 		return {
