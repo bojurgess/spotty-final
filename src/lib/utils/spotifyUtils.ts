@@ -3,10 +3,22 @@ import { getColorPalette, colorPalette } from './colorUtils';
 
 export async function fetchData() {
 	const response = await fetch('https://getnowplaying.penguinoo.workers.dev/');
-	const data = await response.json();
-	return {
-		status: response.status,
-		response: data.response
+	if (response.status === 200 || response.status === 401) {
+		const data = await response.json();
+		return {
+			status: response.status,
+			response: data.response
+		}
+	} else if (response.status === 204) {
+		return {
+			status: response.status,
+			response: null
+		}
+	} else {
+		return {
+			status: response.status,
+			response: response.statusText
+		}
 	}
 }
 

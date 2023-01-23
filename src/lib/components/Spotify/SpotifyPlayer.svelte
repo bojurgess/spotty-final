@@ -26,10 +26,19 @@
 	});
 
 	onMount(() => {
-		fetchSpotifyData().then(() => {
-			if (selectedColor === null) currentColor.set(colors[1].hex);
-		});
+		init();
 	});
+
+	function init() {
+		fetchSpotifyData().then(() => {
+			if (colors !== null) {
+				currentColor.set(colors[1].hex)
+			} else {
+				setTimeout(init, 1000 * 60)
+				currentColor.set('#000000');
+			}
+		});
+	}
 
 	onDestroy(() => {
 		unsubscribe();
@@ -43,7 +52,7 @@
 	{#if compactDisplay === false && colors !== null}
 		<div
 			style="background-color: {selectedColor};"
-			class="max-w-fit p-4 bg-indigo-500 text-black flex flex-col items-center rounded-2xl"
+			class="min-w-fit p-4 bg-indigo-500 text-black flex flex-col items-center rounded-2xl"
 		>
 			<AlbumArt height="500px" />
 			<div class="mt-6">
@@ -62,5 +71,14 @@
 				<TrackProgress />
 			</div>
 		</div>
+	{:else if colors === null}
+		<div class="min-w-fit px-4 py-8 bg-[#1db954] text-black flex items-center rounded-2xl">
+			<img src="/sadge.webp" alt="Sadge" class="max-w-[200px] pr-8 rounded-2xl" />
+			<h1>I'm not listening to anything on spotify right now.</h1>
+		</div>
 	{/if}
+{:else if dataLoaded === false}
+<div class="min-w-fit p-4 bg-indigo-500 text-black flex flex-col items-center rounded-2xl">
+	<h1>Loading Player...</h1>
+</div>
 {/if}
