@@ -36,7 +36,7 @@
 
 <div class="flex justify-center items-center h-[100vh] w-[100vw]">
 	<section class="flex flex-col">
-		<div class="flex flex-col justify-center mb-10">
+		<div class="flex flex-col justify-center mb-4">
 			<h1 class="font-black text-8xl text-white">Beno.</h1>
 			<a
 				target="_blank"
