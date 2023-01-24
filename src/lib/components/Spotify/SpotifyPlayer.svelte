@@ -25,6 +25,10 @@
 		dataLoaded = value;
 	});
 
+	onMount(() => {
+		fetchSpotifyData();
+	})
+
 	onDestroy(() => {
 		unsubscribe();
 		unsubscribeDataLoaded();
@@ -48,7 +52,7 @@
 	{:else if compactDisplay === true && colors !== null}
 		<div
 			style="background-color: {selectedColor};"
-			class="min-w-fit p-4 text-black rounded-2xl flex items-center"
+			class="min-w-fit p-4 bg-indigo-500 text-black rounded-2xl flex items-center"
 		>
 			<AlbumArt height="250px" />
 			<div class="p-8">
