@@ -25,22 +25,6 @@
 		dataLoaded = value;
 	});
 
-	onMount(() => {
-		init();
-	});
-
-	function init() {
-		fetchSpotifyData().then(() => {
-			if (colors !== null) {
-				currentColor.set(colors[1].hex)
-				selectedColor = colors[1].hex;
-			} else {
-				setTimeout(init, 1000 * 60)
-				currentColor.set('#000000');
-			}
-		});
-	}
-
 	onDestroy(() => {
 		unsubscribe();
 		unsubscribeDataLoaded();
@@ -52,7 +36,7 @@
 {#if dataLoaded === true}
 	{#if compactDisplay === false && colors !== null}
 		<div
-			style="background-color: {$currentColor};"
+			style="background-color: {selectedColor};"
 			class="min-w-fit p-4 bg-indigo-500 text-black flex flex-col items-center rounded-2xl"
 		>
 			<AlbumArt height="500px" />

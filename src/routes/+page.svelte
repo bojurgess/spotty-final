@@ -6,7 +6,6 @@
 
 	function toggleCompactDisplay() {
 		compactDisplay = !compactDisplay;
-		console.log(compactDisplay);
 	}
 </script>
 

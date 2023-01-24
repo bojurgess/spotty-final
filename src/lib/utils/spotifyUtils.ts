@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { getColorPalette, colorPalette } from './colorUtils';
+import { getColorPalette, colorPalette, currentColor } from './colorUtils';
 
 export async function fetchData() {
 	const response = await fetch('https://getnowplaying.penguinoo.workers.dev/' + new URLSearchParams({
@@ -30,6 +30,7 @@ export async function fetchSpotifyData() {
 	if (data.status === 200) {
 		const colors = await getColorPalette(data.response.item.album.images[0].url);
 		spotifyData.set({ data: data.response });
+		currentColor.set(colors[1].hex)
 		colorPalette.set(colors);
 
 		dataIsLoaded.set(true);

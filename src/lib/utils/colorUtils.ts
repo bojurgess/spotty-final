@@ -19,7 +19,6 @@ export async function getColorPalette(imageUrl: string) {
 			lightness: getBrightness(swatch.hex)
 		};
 	});
-	console.log(sortPalette(processedPalette));
 	return sortPalette(processedPalette);
 }
 
