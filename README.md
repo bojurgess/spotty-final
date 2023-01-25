@@ -2,4 +2,5 @@
 
 ## Links page:
 - [ ] implement color picker on title text.
-- [ ] fix the color change on track change.
+- [ ] add mobile layout / make it responsive
+- [x] fix the color change on track change.
