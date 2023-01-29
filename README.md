@@ -6,4 +6,4 @@
 - [x] fix the color change on track change.
 
 ## Spotify Utils:
-- [] update request to match new response schema
+- [x] update request to match new response schema

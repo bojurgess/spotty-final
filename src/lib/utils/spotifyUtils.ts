@@ -2,21 +2,22 @@ import { writable } from 'svelte/store';
 import { getColorPalette, colorPalette, currentColor } from './colorUtils';
 
 export async function fetchData() {
-	const response = await fetch('https://getnowplaying.penguinoo.workers.dev/' + new URLSearchParams({
-		market: 'US',
-	}));
-	if (response.status === 200 || response.status === 401) {
-		const data = await response.json();
-		return {
-			status: response.status,
-			response: data.response
-		}
-	} else if (response.status === 204) {
-		return {
-			status: response.status,
-			response: null
-		}
-	} else {
+  const response = await fetch('https://getnowplaying.penguinoo.workers.dev/?' + new URLSearchParams({
+    market: 'US',
+    user: 'beno',
+  }));
+  if (response.status === 200 || response.status === 401) {
+    const data = await response.json();
+    return {
+      status: response.status,
+      response: data
+    }
+  } else if (response.status === 204) {
+    return {
+      status: response.status,
+      response: null
+    }
+  } else {
 		return {
 			status: response.status,
 			response: response.statusText
@@ -28,6 +29,7 @@ export async function fetchSpotifyData() {
 	const data = await fetchData();
 
 	if (data.status === 200) {
+    console.log('test2')
 		const colors = await getColorPalette(data.response.item.album.images[0].url);
 		spotifyData.set({ data: data.response });
 		currentColor.set(colors[1].hex)
